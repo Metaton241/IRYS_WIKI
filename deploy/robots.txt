@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yourusername.github.io/iryswiki/sitemap.xml
+
+# Замените yourusername на ваше имя пользователя на GitHub
+# после настройки репозитория
+

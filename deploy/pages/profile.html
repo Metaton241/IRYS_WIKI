@@ -1,0 +1,149 @@
+<div class="profile-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>User Profile</h1>
+        </div>
+
+        <div class="wallet-check">
+            <div class="wallet-not-connected hidden">
+                <div class="alert alert-warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <h3>Wallet Connection Required</h3>
+                        <p>You need to connect your wallet to view your profile.</p>
+                        <button class="btn btn-primary connect-wallet-profile-btn">
+                            <span class="btn-icon">💼</span> Connect Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-container" id="profile-container">
+            <div class="loading-indicator hidden">
+                <div class="spinner"></div>
+                <p>Loading profile from blockchain...</p>
+            </div>
+            
+            <div class="profile-not-found hidden">
+                <div class="alert alert-info">
+                    <span class="alert-icon">ℹ️</span>
+                    <div class="alert-content">
+                        <h3>Profile Not Found</h3>
+                        <p>You don't have a profile yet. Create one now!</p>
+                    </div>
+                </div>
+                
+                <div class="create-profile-section">
+                    <h2>Create Profile</h2>
+                    <p>Profile creation cost: <strong>0.0002 IRYS</strong></p>
+                    <p>Your balance: <strong id="profile-balance">0.0000 IRYS</strong></p>
+                    
+                    <div class="create-profile-form">
+                        <div class="form-group">
+                            <label for="profile-username">Username</label>
+                            <input type="text" id="profile-username" placeholder="Enter username...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profile-bio">About Me</label>
+                            <textarea id="profile-bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Avatar</label>
+                            <div class="avatar-uploader">
+                                <div class="avatar-preview" id="avatar-preview">
+                                    <span class="avatar-placeholder">👤</span>
+                                </div>
+                                <div class="avatar-upload">
+                                    <button class="btn btn-outline" id="upload-avatar-btn">
+                                        <span class="btn-icon">📤</span> Upload Image
+                                    </button>
+                                    <input type="file" id="avatar-input" accept="image/*" class="hidden">
+                                    <p class="upload-info">Max size: 2MB. PNG, JPEG, GIF supported.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="create-profile-btn">
+                                <span class="btn-icon">✓</span> Create Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-found hidden">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img id="profile-avatar-img" src="" alt="Avatar">
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profile-name"></h2>
+                        <div class="profile-address" id="profile-address"></div>
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-threads">0</span>
+                                <span class="stat-label">Threads</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-replies">0</span>
+                                <span class="stat-label">Replies</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-transactions">0</span>
+                                <span class="stat-label">Transactions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-outline" id="edit-profile-btn">
+                            <span class="btn-icon">✏️</span> Edit Profile
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="profile-bio-section">
+                    <h3>About</h3>
+                    <div class="profile-bio-content" id="profile-bio-text"></div>
+                </div>
+                
+                <div class="profile-transaction">
+                    <p>
+                        <span class="transaction-icon">🔗</span>
+                        Profile Transaction: <a class="profile-transaction-link" target="_blank" id="profile-tx-link"></a>
+                    </p>
+                </div>
+                
+                <div class="profile-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="threads">My Threads</button>
+                        <button class="tab-btn" data-tab="replies">My Replies</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="tab-content active" id="tab-threads">
+                            <div id="profile-threads-container">
+                                <div class="loading-indicator">
+                                    <div class="spinner"></div>
+                                    <p>Loading threads...</p>
+                                </div>
+                                <!-- User threads will be loaded by JS -->
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-replies">
+                            <div id="profile-replies-container">
+                                <div class="loading-indicator">
+                                    <div class="spinner"></div>
+                                    <p>Loading replies...</p>
+                                </div>
+                                <!-- User replies will be loaded by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

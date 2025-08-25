@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Coinbase</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="coinbase-seeklogo.com">
+            <circle id="Oval" fill="#0052FF" cx="512" cy="512" r="512"></circle>
+            <path d="M559.2,672 L464.8,672 C459.6,672 455.3,667.7 455.3,662.5 L455.3,350.4 C455.3,345.2 459.6,340.9 464.8,340.9 L559.2,340.9 C564.4,340.9 568.7,345.2 568.7,350.4 L568.7,662.4 C568.8,667.7 564.4,672 559.2,672 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M682.7,568.3 L588.3,568.3 C583.1,568.3 578.8,564 578.8,558.8 L578.8,453.6 C578.8,448.4 583.1,444.1 588.3,444.1 L682.7,444.1 C687.9,444.1 692.2,448.4 692.2,453.6 L692.2,558.7 C692.2,564 687.9,568.3 682.7,568.3 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M435.7,568.3 L341.3,568.3 C336.1,568.3 331.8,564 331.8,558.8 L331.8,453.6 C331.8,448.4 336.1,444.1 341.3,444.1 L435.7,444.1 C440.9,444.1 445.2,448.4 445.2,453.6 L445.2,558.7 C445.2,564 440.9,568.3 435.7,568.3 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
+

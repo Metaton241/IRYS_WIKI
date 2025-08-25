@@ -1,0 +1,96 @@
+<div class="create-thread-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>Create New Thread</h1>
+            <div class="page-actions">
+                <a href="#" data-route="/threads" class="btn btn-outline">
+                    <span class="btn-icon">←</span> Back to Threads
+                </a>
+            </div>
+        </div>
+
+        <div class="wallet-check">
+            <div class="wallet-not-connected hidden">
+                <div class="alert alert-warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <h3>Wallet Connection Required</h3>
+                        <p>You need to connect your wallet to create a thread.</p>
+                        <button class="btn btn-primary connect-wallet-page-btn">
+                            <span class="btn-icon">💼</span> Connect Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="wallet-insufficient-funds hidden">
+                <div class="alert alert-warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <h3>Insufficient Funds</h3>
+                        <p>Creating a thread requires <strong>0.0003 IRYS</strong>. Your current balance: <strong id="current-balance">0.0000</strong> IRYS.</p>
+                        <button class="btn btn-primary" id="fund-wallet-btn">
+                            <span class="btn-icon">💰</span> Fund Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="create-thread-form">
+            <div class="form-group">
+                <label for="thread-title">Title</label>
+                <input type="text" id="thread-title" placeholder="Enter thread title...">
+            </div>
+            
+            <div class="form-group">
+                <label for="thread-category">Category</label>
+                <select id="thread-category">
+                    <option value="general">General Discussion</option>
+                    <option value="blockchain">Blockchain & Crypto</option>
+                    <option value="development">Development</option>
+                    <option value="tutorials">Tutorials & Guides</option>
+                    <option value="announcements">Announcements</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="thread-content">Content</label>
+                <div class="editor-container">
+                    <textarea id="thread-content" rows="10" placeholder="Write your thread content..."></textarea>
+                    <div class="editor-tools">
+                        <button class="editor-tool-btn" data-tool="bold">B</button>
+                        <button class="editor-tool-btn" data-tool="italic">I</button>
+                        <button class="editor-tool-btn" data-tool="link">🔗</button>
+                        <button class="editor-tool-btn" data-tool="code">{"}"</button>
+                        <button class="editor-tool-btn" data-tool="image">🖼️</button>
+                        <span class="editor-info">Markdown Supported</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="thread-preview">Preview</label>
+                <div id="thread-preview" class="markdown-content">
+                    <!-- Markdown preview will appear here -->
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="thread-cost-info">
+                    <p>Thread creation cost: <strong>0.0003 IRYS</strong></p>
+                    <p>Your balance: <strong id="create-balance">0.0000 IRYS</strong></p>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn btn-secondary" id="preview-thread-btn">
+                    <span class="btn-icon">👁️</span> Preview
+                </button>
+                <button class="btn btn-primary" id="create-thread-submit">
+                    <span class="btn-icon">✓</span> Create Thread
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

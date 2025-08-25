@@ -1,0 +1,120 @@
+<div class="create-article-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>Create New Article</h1>
+            <p>Share your knowledge with the community</p>
+        </div>
+
+        <div class="article-form">
+            <div class="form-group">
+                <label for="article-title">Title</label>
+                <input type="text" id="article-title" class="form-control" placeholder="Enter article title">
+            </div>
+
+            <div class="form-group">
+                <label for="article-tags">Tags (comma separated)</label>
+                <input type="text" id="article-tags" class="form-control" placeholder="blockchain, tutorial, web3">
+            </div>
+
+            <div class="form-group">
+                <label for="article-content">Content (Markdown supported)</label>
+                <textarea id="article-content" class="form-control" rows="12" placeholder="Write your article content here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <div class="markdown-preview">
+                    <div class="preview-header">
+                        <h3>Preview</h3>
+                    </div>
+                    <div class="preview-content markdown-content" id="markdown-preview">
+                        <p>Your preview will appear here as you type...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-info">
+                <div class="payment-info-header">
+                    <h3>Publication Cost</h3>
+                </div>
+                <div class="payment-info-content">
+                    <p>Creating an article requires a payment of <strong>0.0005 IRYS</strong> to ensure quality content and permanent storage on the blockchain.</p>
+                    <p>Current wallet balance: <strong><span id="wallet-balance-display">0</span> IRYS</strong></p>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button id="create-article-btn" class="btn btn-primary btn-large">
+                    <span class="btn-icon">📝</span> Publish Article
+                </button>
+                <a href="#" data-route="/articles" class="btn btn-outline">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initCreateArticlePage() {
+        console.log('Create article page initialized');
+        
+        // This is a placeholder for article creation functionality
+        // In a real implementation, we would handle article creation and blockchain storage
+        
+        const titleInput = document.getElementById('article-title');
+        const contentTextarea = document.getElementById('article-content');
+        const previewDiv = document.getElementById('markdown-preview');
+        const createButton = document.getElementById('create-article-btn');
+        const walletBalanceDisplay = document.getElementById('wallet-balance-display');
+        
+        // Update preview as the user types
+        contentTextarea.addEventListener('input', updatePreview);
+        
+        // Display current wallet balance
+        if (window.hybridStorage && typeof hybridStorage.getBalance === 'function') {
+            hybridStorage.getBalance()
+                .then(balance => {
+                    walletBalanceDisplay.textContent = balance;
+                })
+                .catch(err => {
+                    console.error('Failed to get wallet balance:', err);
+                });
+        } else {
+            walletBalanceDisplay.textContent = '0';
+        }
+        
+        // Handle create article button
+        createButton.addEventListener('click', function() {
+            if (!titleInput.value.trim()) {
+                alert('Please enter a title for your article.');
+                return;
+            }
+            
+            if (!contentTextarea.value.trim()) {
+                alert('Please enter content for your article.');
+                return;
+            }
+            
+            alert('This is a demo version. Article creation is not implemented yet.');
+            
+            // In a real implementation, we would call the API to create the article
+            // For now, just redirect back to the articles page
+            if (window.router) {
+                setTimeout(() => {
+                    router.navigateTo('/articles');
+                }, 1000);
+            }
+        });
+        
+        function updatePreview() {
+            const content = contentTextarea.value || 'Your preview will appear here as you type...';
+            
+            // Use marked.js to render markdown if available
+            if (window.marked) {
+                previewDiv.innerHTML = marked.parse(content);
+            } else {
+                previewDiv.textContent = content;
+            }
+        }
+    }
+</script>

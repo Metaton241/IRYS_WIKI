@@ -1,0 +1,38 @@
+<div class="articles-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>Articles</h1>
+            <p>Browse and read articles stored on the Irys blockchain</p>
+        </div>
+
+        <div class="articles-grid" id="articles-container">
+            <!-- Articles will be loaded here -->
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading articles from blockchain...</p>
+            </div>
+        </div>
+
+        <div class="empty-state hidden" id="no-articles">
+            <div class="empty-state-icon">📝</div>
+            <h2>No Articles Yet</h2>
+            <p>Be the first to create an article on this topic!</p>
+            <a href="#" data-route="/create-article" class="btn btn-primary">Create Article</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initArticlesPage() {
+        console.log('Articles page initialized');
+        
+        // This is a placeholder for article page functionality
+        // In a real implementation, we would load articles from the blockchain
+        
+        // For now, just show the empty state after a brief delay
+        setTimeout(() => {
+            document.querySelector('.loading-indicator').classList.add('hidden');
+            document.getElementById('no-articles').classList.remove('hidden');
+        }, 1500);
+    }
+</script>

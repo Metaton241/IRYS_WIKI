@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - IRYSWIKI</title>
+    <meta name="description" content="Page not found on IRYSWIKI">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // Redirect all 404s to the main page for SPA
+        window.addEventListener('DOMContentLoaded', function() {
+            // Get the current URL path
+            const path = window.location.pathname;
+            
+            // Check if it's a direct file request
+            if (path.includes('.')) {
+                document.getElementById('error-details').innerText = 'The requested file could not be found.';
+            } else {
+                // Redirect to index.html after showing error message for a moment
+                setTimeout(function() {
+                    window.location.href = window.location.origin + 
+                        window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + 
+                        '/index.html#' + path;
+                }, 1500);
+            }
+        });
+    </script>
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background-image: linear-gradient(to right, #0052FF, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        .error-action {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+            <span id="error-details"></span>
+        </p>
+        <div class="error-message">
+            Redirecting to the home page...
+        </div>
+        <div class="error-action">
+            <a href="index.html" class="btn btn-primary">Return to Home Page</a>
+        </div>
+    </div>
+</body>
+</html>
+

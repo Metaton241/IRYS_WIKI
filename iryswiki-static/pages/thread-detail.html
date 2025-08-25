@@ -1,0 +1,86 @@
+<div class="thread-detail-page">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="#" data-route="/threads">All Threads</a> / <span class="current-thread-title">Thread Title</span>
+        </div>
+
+        <div id="thread-detail-container">
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading thread from blockchain...</p>
+            </div>
+            
+            <!-- Thread details will be loaded by JS -->
+            <div class="thread-detail hidden">
+                <div class="thread-header">
+                    <div class="thread-category"></div>
+                    <h1 class="thread-title"></h1>
+                    <div class="thread-meta">
+                        <div class="thread-author">
+                            <span class="author-icon">👤</span>
+                            <span class="author-address"></span>
+                        </div>
+                        <div class="thread-date"></div>
+                        <div class="thread-views">
+                            <span class="views-icon">👁️</span>
+                            <span class="views-count"></span> views
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thread-content markdown-content"></div>
+
+                <div class="thread-actions">
+                    <button class="btn btn-outline thread-action">
+                        <span class="btn-icon">👍</span>
+                        <span class="likes-count">0</span> Likes
+                    </button>
+                    <button class="btn btn-outline thread-action">
+                        <span class="btn-icon">🔗</span> Share
+                    </button>
+                    <button class="btn btn-outline thread-action">
+                        <span class="btn-icon">🚩</span> Report
+                    </button>
+                </div>
+                
+                <div class="thread-transaction">
+                    <p>
+                        <span class="transaction-icon">🔗</span>
+                        Transaction: <a class="transaction-link" target="_blank"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="thread-replies">
+            <h2>Replies <span class="replies-count">(0)</span></h2>
+            
+            <div id="thread-replies-container">
+                <!-- Replies will be loaded by JS -->
+            </div>
+            
+            <div class="reply-form" id="reply-form">
+                <h3>Add Reply</h3>
+                <div class="form-not-connected hidden">
+                    <p>You need to connect your wallet to reply.</p>
+                    <button class="btn btn-primary connect-to-reply-btn">
+                        <span class="btn-icon">💼</span> Connect Wallet
+                    </button>
+                </div>
+                <div class="form-connected hidden">
+                    <div class="form-group">
+                        <label for="reply-content">Your Reply</label>
+                        <textarea id="reply-content" rows="5" placeholder="Write your reply..."></textarea>
+                    </div>
+                    <div class="form-info">
+                        <p>Reply cost: <strong>0.0001 IRYS</strong></p>
+                        <p>Your balance: <strong id="reply-balance">0.0000 IRYS</strong></p>
+                    </div>
+                    <button class="btn btn-primary" id="submit-reply-btn">
+                        <span class="btn-icon">📤</span> Submit Reply
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

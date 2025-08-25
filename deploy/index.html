@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IRYSWIKI - Decentralized Wiki on Irys Blockchain</title>
+    <meta name="description" content="Create and store articles on the Irys blockchain. A decentralized wiki platform for the future.">
+    <meta name="author" content="IRYSWIKI Team">
+    <meta name="theme-color" content="#0052FF">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="IRYSWIKI - Decentralized Wiki">
+    <meta property="og:description" content="Create and store articles on the Irys blockchain. A decentralized wiki platform for the future.">
+    <meta property="og:image" content="assets/social-share.svg">
+    <meta property="og:url" content="https://yourusername.github.io/iryswiki/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IRYSWIKI - Decentralized Wiki">
+    <meta name="twitter:description" content="Create and store articles on the Irys blockchain. A decentralized wiki platform for the future.">
+    <meta name="twitter:image" content="assets/social-share.svg">
+    
+    <!-- Base path script must be loaded first to set correct paths -->
+    <script src="js/base-path.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS -->
+    <script>
+        // Apply base path to CSS files
+        document.write('<link rel="stylesheet" href="' + resolveUrl('css/normalize.css') + '">');
+        document.write('<link rel="stylesheet" href="' + resolveUrl('css/main.css') + '">');
+        document.write('<link rel="stylesheet" href="' + resolveUrl('css/components.css') + '">');
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="" id="home-link">IRYSWIKI</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#" data-route="/" class="active">Home</a></li>
+                        <li><a href="#" data-route="/threads">Threads</a></li>
+                        <li><a href="#" data-route="/articles">Articles</a></li>
+                        <li><a href="#" data-route="/create-thread">Create Thread</a></li>
+                    </ul>
+                </nav>
+                <div class="wallet-section">
+                    <div class="wallet-not-connected">
+                        <button id="connect-wallet-btn" class="btn btn-primary">
+                            <span class="wallet-icon">💼</span> Connect Wallet
+                        </button>
+                    </div>
+                    <div class="wallet-connected hidden">
+                        <div class="wallet-balance">
+                            <span id="wallet-balance">0</span> IRYS
+                        </div>
+                        <div class="wallet-address" id="wallet-address">0x0000...0000</div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle btn btn-outline">
+                                <span class="profile-icon">👤</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" data-route="/profile" class="dropdown-item">Profile</a>
+                                <button id="disconnect-wallet-btn" class="dropdown-item text-danger">Disconnect</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <div id="app-content">
+        <!-- Content will be loaded here by the router -->
+        <main class="home-page">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="text-center">
+                        <h1 class="hero-title">
+                            $3 Trillion in Data <span class="highlight">Undiscovered</span><br>
+                            Until Now
+                        </h1>
+                        <p class="hero-description">
+                            The world's first hybrid decentralized forum: blockchain-verified payments for quality control,
+                            with lightning-fast local storage for instant access to your content.
+                        </p>
+                        
+                        <!-- System Explanation -->
+                        <div class="system-explanation">
+                            <div class="system-explanation-header">
+                                <span class="system-icon">💫</span>
+                                <h3>Hybrid Storage System</h3>
+                            </div>
+                            <div class="system-explanation-content">
+                                <p><strong>Payment Required:</strong> 0.0003 IRYS to create threads - ensures quality content</p>
+                                <p><strong>Instant Display:</strong> Content stored locally for lightning-fast loading</p>
+                                <p><strong>Verified Ownership:</strong> Blockchain receipts prove your payment and ownership</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button id="create-thread-btn" class="btn btn-primary" disabled>
+                                <span class="btn-icon">+</span> Create Thread
+                            </button>
+                            <a href="#" data-route="/threads" class="btn btn-outline">
+                                <span class="btn-icon">💬</span> Browse Threads
+                            </a>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="stats">
+                            <div class="stat-card">
+                                <div id="total-threads" class="stat-number">0</div>
+                                <div class="stat-label">Total Threads</div>
+                            </div>
+                            <div class="stat-card">
+                                <div id="active-users" class="stat-number">0</div>
+                                <div class="stat-label">Active Users</div>
+                            </div>
+                            <div class="stat-card">
+                                <div id="total-replies" class="stat-number">0</div>
+                                <div class="stat-label">Total Replies</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Discussion Categories</h2>
+                        <p>Explore conversations across different topics</p>
+                    </div>
+
+                    <div class="categories-grid" id="categories-container">
+                        <!-- Categories will be added by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Threads -->
+            <section class="recent-threads">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Recent Discussions</h2>
+                        <p>Join the latest conversations happening on the blockchain</p>
+                    </div>
+
+                    <div id="recent-threads-container">
+                        <div class="loading-indicator">
+                            <div class="spinner"></div>
+                            <p>Loading threads from blockchain...</p>
+                        </div>
+                        
+                        <!-- Threads will be added by JavaScript -->
+                    </div>
+                    
+                    <div class="view-all-container">
+                        <a href="#" data-route="/threads" class="btn btn-primary">
+                            View All Threads
+                        </a>
+                        
+                        <!-- Debug buttons -->
+                        <button id="debug-storage" class="btn btn-secondary">
+                            <span class="btn-icon">🔍</span> Debug Storage
+                        </button>
+                        
+                        <button id="clear-storage" class="btn btn-danger">
+                            <span class="btn-icon">🗑️</span> Clear Storage
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Why Choose IRYSWIKI?</h2>
+                        <p>Built on cutting-edge blockchain technology for the ultimate discussion experience</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Permanent Storage</h3>
+                            <p>Every thread and reply is stored permanently on the blockchain, ensuring they can never be lost.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>True Ownership</h3>
+                            <p>You own your content and profile completely. No platform can censor or remove your discussions.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Quality Content</h3>
+                            <p>Transaction fees ensure high-quality discussions and reduce spam significantly.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">💰</div>
+                            <h3>Transparent Costs</h3>
+                            <p>Clear, minimal transaction fees: 0.0003 IRYS per thread, less for replies.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta">
+                <div class="container">
+                    <h2>Ready to Join the Discussion?</h2>
+                    <p>Connect your wallet and start participating in the future of decentralized discussions.</p>
+                    <button id="cta-connect-btn" class="btn btn-primary btn-large">
+                        <span class="btn-icon">💼</span> Connect Wallet
+                    </button>
+                    <a href="#" data-route="/profile" id="setup-profile-btn" class="btn btn-primary btn-large hidden">
+                        <span class="btn-icon">👤</span> Setup Your Profile
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" data-route="/">IRYSWIKI</a>
+                    <p>Decentralized Wiki Platform on the Blockchain</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#" data-route="/">Home</a></li>
+                        <li><a href="#" data-route="/threads">Threads</a></li>
+                        <li><a href="#" data-route="/articles">Articles</a></li>
+                        <li><a href="#" data-route="/create-thread">Create Thread</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://irys.xyz" target="_blank">Irys Blockchain</a></li>
+                        <li><a href="#" data-route="/profile">Profile</a></li>
+                        <li><a href="#" id="footer-wallet-setup">Wallet Setup</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IRYSWIKI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="wallet-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Connect Wallet</h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="wallet-options">
+                    <button class="wallet-option" data-wallet="metamask">
+                        <img id="metamask-img" src="" alt="MetaMask">
+                        <span>MetaMask</span>
+                    </button>
+                    <button class="wallet-option" data-wallet="walletconnect">
+                        <img id="walletconnect-img" src="" alt="WalletConnect">
+                        <span>WalletConnect</span>
+                    </button>
+                    <button class="wallet-option" data-wallet="coinbase">
+                        <img id="coinbase-img" src="" alt="Coinbase">
+                        <span>Coinbase Wallet</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" type="application/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Apply base path to image sources
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('home-link').href = resolveUrl('index.html');
+            document.getElementById('metamask-img').src = resolveUrl('assets/metamask.svg');
+            document.getElementById('walletconnect-img').src = resolveUrl('assets/walletconnect.svg');
+            document.getElementById('coinbase-img').src = resolveUrl('assets/coinbase.svg');
+            
+            // Update social media URLs
+            const ogImage = document.querySelector('meta[property="og:image"]');
+            const twitterImage = document.querySelector('meta[name="twitter:image"]');
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            
+            if (ogImage) ogImage.setAttribute('content', resolveUrl('assets/social-share.svg'));
+            if (twitterImage) twitterImage.setAttribute('content', resolveUrl('assets/social-share.svg'));
+            if (ogUrl) {
+                const baseUrl = window.location.origin + BASE_PATH;
+                ogUrl.setAttribute('content', baseUrl);
+            }
+        });
+    </script>
+    <script>
+        // Apply base path to script sources
+        document.write('<script src="' + resolveUrl('js/config.js') + '"><\/script>');
+        document.write('<script src="' + resolveUrl('js/storage.js') + '"><\/script>');
+        document.write('<script src="' + resolveUrl('js/wallet.js') + '"><\/script>');
+        document.write('<script src="' + resolveUrl('js/router.js') + '"><\/script>');
+        document.write('<script src="' + resolveUrl('js/ui.js') + '"><\/script>');
+        document.write('<script src="' + resolveUrl('js/app.js') + '"><\/script>');
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Default Avatar</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Background" fill="#E2E8F0" cx="256" cy="256" r="256"></circle>
+        <g id="User" transform="translate(106.000000, 106.000000)" fill="#4A6DA7" fill-rule="nonzero">
+            <path d="M150,0 C201.987,0 244,42.013 244,94 C244,133.233 220.745,167.277 186.481,182.333 C246.611,199.343 290,255.32 290,321.5 L290,330 C290,339.388 282.388,347 273,347 L27,347 C17.612,347 10,339.388 10,330 L10,321.5 C10,255.32 53.389,199.343 113.519,182.333 C79.255,167.277 56,133.233 56,94 C56,42.013 98.013,0 150,0 Z M150,198 C78.87,198 20,256.87 20,328 L20,330 L280,330 L280,328 C280,256.87 221.13,198 150,198 Z M150,17 C107.49,17 73,51.49 73,94 C73,136.51 107.49,171 150,171 C192.51,171 227,136.51 227,94 C227,51.49 192.51,17 150,17 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>
+

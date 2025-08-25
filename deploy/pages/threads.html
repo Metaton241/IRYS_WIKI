@@ -1,0 +1,43 @@
+<div class="threads-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>All Discussions</h1>
+            <div class="page-actions">
+                <button id="create-thread-btn-page" class="btn btn-primary">
+                    <span class="btn-icon">+</span> Create Thread
+                </button>
+            </div>
+        </div>
+
+        <div class="thread-filters">
+            <div class="filter-categories">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="general">General</button>
+                <button class="filter-btn" data-category="blockchain">Blockchain</button>
+                <button class="filter-btn" data-category="development">Development</button>
+                <button class="filter-btn" data-category="tutorials">Tutorials</button>
+                <button class="filter-btn" data-category="announcements">Announcements</button>
+            </div>
+            <div class="filter-search">
+                <input type="text" placeholder="Search threads..." id="thread-search">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+
+        <div id="threads-container">
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading threads from blockchain...</p>
+            </div>
+            
+            <!-- Threads will be loaded by JS -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="threads-pagination">
+            <button class="pagination-btn" data-page="prev">« Prev</button>
+            <div class="pagination-numbers"></div>
+            <button class="pagination-btn" data-page="next">Next »</button>
+        </div>
+    </div>
+</div>
